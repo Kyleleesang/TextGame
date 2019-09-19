@@ -23,7 +23,7 @@ public class Room {
     
     
     public String toString() {
-  for (int i = 0; i < 10; i++){
+  for (int i = 0; i < RoomAnimals.length; i++){
           System.out.println(animal.toString());
     }
   }
