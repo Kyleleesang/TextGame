@@ -4,21 +4,24 @@
  * and open the template in the editor.
  */
 package homework1;
+import java.lang.String;
+
 
 /**
  *
  * @author kleesans
  */
 public class animal {
-    string name;
+    String name;
     Room room;
     
-    public string toString(){
+    public animal(String n){
+        name = n;
+    }
+    
+    public String toString(){
         return name;
     }
     
-    public void newAnimal(string DesiredName){
-        new animal(DesiredName);
-    }
-    
 }
+

@@ -4,13 +4,14 @@
  * and open the template in the editor.
  */
 package homework1;
-
+import java.util.Scanner;
 /**
  *
  * @author kleesans
  */
 public class Main {
     public static void Main(String[] Args) {
+        
         
     }
 }
