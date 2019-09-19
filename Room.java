@@ -28,11 +28,7 @@ public class Room {
     }
   }
   
-    /**
-     *
-     * @param r
-     * @param a
-     */
+    
     public void addAnimal(Animal a) {
       for (int i = 0; i < 10; i++){
       if (RoomAnimals[i] == null){
