@@ -12,19 +12,19 @@ import java.lang.String;
 public class Room {
     String name = "Living Room";
     //instantiating an array at 9 makes 10 objects because of an object at array[0] so I made it with 9
-    animal[] RoomAnimals = new animal[9];
+    Animal[] RoomAnimals = new Animal[9];
     
    
     public Room(String n) {
         name = n;
-        RoomAnimals = new animal[9];
+        RoomAnimals = new Animal[9];
     }
 
     
     
     public String toString() {
   for (int i = 0; i < RoomAnimals.length; i++){
-          System.out.println(animal.toString());
+          System.out.println(Animal.toString());
     }
   }
   
@@ -33,10 +33,10 @@ public class Room {
      * @param r
      * @param a
      */
-    public void addAnimal(string name) {
+    public void addAnimal(Animal a) {
       for (int i = 0; i < 10; i++){
       if (RoomAnimals[i] == null){
-      RoomAnimals[i] = new animal(name);
+      RoomAnimals[i] = new Animal(name);
       i++;
             }
         }
