@@ -11,11 +11,11 @@ import java.lang.String;
  *
  * @author kleesans
  */
-public class animal {
+public class Animal {
     String name;
     Room room;
     
-    public animal(String n){
+    public Animal(String n){
         name = n;
     }
     
