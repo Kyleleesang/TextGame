@@ -23,7 +23,7 @@ public class Room {
     
     
     public String toString() {
-  for (int i = 0; i < 10; i++;){
+  for (int i = 0; i < 10; i++){
           System.out.println(animal.toString());
     }
   }
@@ -34,7 +34,7 @@ public class Room {
      * @param a
      */
     public void addAnimal(Room r,animal a) {
-      for (int i = 0; i < 10; i++;){
+      for (int i = 0; i < 10; i++){
       if (RoomAnimals[i] == null){
       RoomAnimals[i] = new animal(a);
       i++;
