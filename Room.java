@@ -36,7 +36,7 @@ public class Room {
     public void addAnimal(Animal a) {
       for (int i = 0; i < 10; i++){
       if (RoomAnimals[i] == null){
-      RoomAnimals[i] = new Animal(name);
+      RoomAnimals[i] = new Animal(a);
       i++;
             }
         }
