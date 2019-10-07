@@ -13,6 +13,7 @@ import java.lang.String;
  */
 public class PC extends Creature{
     String name;
+    String description;
     Room* room;
     Int Respect = 40;
     
