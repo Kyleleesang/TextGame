@@ -14,7 +14,7 @@ import java.lang.String;
 public class PC extends Creature{
     String name;
     Room* room;
-    Int Respect;
+    Int Respect = 40;
     
     public PC(String n){
         name = n;
