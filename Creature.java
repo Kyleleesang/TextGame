@@ -34,5 +34,8 @@ public class Creature {
    }
 //allows a creature to enter or exit a room
      Public void Changeroom () {
-}
+   }
+//change room state
+     Public void Interact() {
+   }
 }
