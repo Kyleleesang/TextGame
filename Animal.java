@@ -11,7 +11,7 @@ import java.lang.String;
  *
  * @author kleesans
  */
-public class Animal {
+public class Animal extends Creature{
     String name;
     Room room;
     
