@@ -13,7 +13,8 @@ import java.lang.String;
  */
 public class Animal extends Creature{
     String name;
-    Room room;
+    String description;
+    Room* room;
     
     public Animal(String n){
         name = n;
