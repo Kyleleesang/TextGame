@@ -11,9 +11,11 @@ import java.util.Arrays;
  * @author kleesans
  */
 public class Room {
-    String name = "Living Room";
+    String name;
+    String description;
+    String state;
     //instantiating an array at 9 makes 10 objects because of an object at array[0] so I made it with 9
-    Animal[] RoomAnimals = new Animal[9];
+    Creature[] RoomAnimals = new Creature[9];
     Room north;
     Room south;
     Room west;
@@ -22,7 +24,7 @@ public class Room {
    
     public Room(String n) {
         name = n;
-        RoomAnimals = new Animal[9];
+        RoomAnimals = new Creature[9];
     }
 
     
