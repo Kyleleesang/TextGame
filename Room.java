@@ -14,6 +14,10 @@ public class Room {
     String name = "Living Room";
     //instantiating an array at 9 makes 10 objects because of an object at array[0] so I made it with 9
     Animal[] RoomAnimals = new Animal[9];
+    Room north;
+    Room south;
+    Room west;
+    Room east;
     
    
     public Room(String n) {
