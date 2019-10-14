@@ -14,8 +14,7 @@ public class Room {
     String name;
     String description;
     String state;
-    //instantiating an array at 9 makes 10 objects because of an object at array[0] so I made it with 9
-    Creature[] RoomAnimals = new Creature[9];
+    Creature[] RoomAnimals = new Creature[10];
     Room north;
     Room south;
     Room west;
@@ -24,14 +23,14 @@ public class Room {
    
     public Room(String n) {
         name = n;
-        RoomAnimals = new Creature[9];
+        RoomAnimals = new Creature[10];
     }
 
     
     
     public String toString() {
   for (int i = 0; i < RoomAnimals.length; i++){
-          System.out.println(Animal.toString());
+          System.out.println(Animal.toString([i]));
     }
   }
   
@@ -39,7 +38,7 @@ public class Room {
     public void addAnimal(Animal a) {
       for (int i = 0; i < 10; i++){
       if (RoomAnimals[i] == null){
-      RoomAnimals[i] = new Animal(a);
+      RoomAnimals[i] = Animal(a);
       i++;
             }
         }
