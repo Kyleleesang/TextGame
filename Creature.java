@@ -1,11 +1,10 @@
-
   
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package homework1;
+package RoomGame;
 import java.lang.String;
 
 
@@ -16,7 +15,7 @@ import java.lang.String;
 public class Creature {
     String name;
     String description;
-    Room* current;
+    Room current;
     
     public Creature(String n){
         name = n;
@@ -29,13 +28,14 @@ public class Creature {
     public void notification() {
    }
 //method signature for peekroom since all animals can peek
-    Public void Peekroom(){
+    public void Peekroom(){
 
    }
 //allows a creature to enter or exit a room
-     Public void Changeroom () {
+     public void Changeroom(Room r) {
+         Creature.Room = Room r;
    }
 //change room state
-     Public void Interact() {
+     public void Interact() {
    }
 }

@@ -4,14 +4,24 @@
  * and open the template in the editor.
  */
 package RoomGame;
-import java.util.Scanner;
+import java.lang.String;
+
+
 /**
  *
  * @author kleesans
  */
-public class Main {
-    public static void Main(String[] Args) {
-        
-        
+public class animal {
+    String name;
+    Room room;
+    
+    public animal(String n){
+        name = n;
     }
+    
+    public String toString(){
+        return name;
+    }
+    
 }
+

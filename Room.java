@@ -3,42 +3,42 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package homework1;
-import java.lang.String;
-import java.util.Arrays;
+package RoomGame;
 /**
  *
  * @author kleesans
  */
 public class Room {
-    String name;
-    String description;
-    String state;
-    Creature[] RoomAnimals = new Creature[10];
     Room north;
     Room south;
-    Room west;
     Room east;
+    Room west;
+    String name = "Living Room";
+    String state;
+    animal[] RoomAnimals = new animal[10];
     
    
     public Room(String n) {
         name = n;
-        RoomAnimals = new Creature[10];
+        RoomAnimals = new animal[10];
     }
 
+ 
     
     
     public String toString() {
-  for (int i = 0; i < RoomAnimals.length; i++){
-          System.out.println(Animal.toString([i]));
+  for (int i = 0; i < 10; i++){
+      if (RoomAnimals[i] != null) {
+          System.out.println(RoomAnimals[i].toString());
+      } 
+      }
+        return null;
     }
-  }
-  
-    
-    public void addAnimal(Animal a) {
+       
+    public void addAnimal(Room r,animal a) {
       for (int i = 0; i < 10; i++){
       if (RoomAnimals[i] == null){
-      RoomAnimals[i] = Animal(a);
+      RoomAnimals[i] = new animal(a);
       i++;
             }
         }
