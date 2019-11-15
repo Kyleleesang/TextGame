@@ -35,10 +35,10 @@ public class Room {
         return null;
     }
        
-    public void addAnimal(Room r,animal a) {
+    public void addAnimal(Room r,String NewAnimal) {
       for (int i = 0; i < 10; i++){
       if (RoomAnimals[i] == null){
-      RoomAnimals[i] = new animal(a);
+      RoomAnimals[i] = new animal(NewAnimal);
       i++;
             }
         }
