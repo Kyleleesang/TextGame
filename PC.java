@@ -14,11 +14,11 @@ public class PC extends Creature{
     String name;
     String description;
     Room room;
-    int Respect = 40;
+    private int Respect = 40;
     
-    public PC(String n){
-    	super(n);
-        name = n;
+    public PC(String name){
+    	super(name);
+        
     }
     
     public String toString(){
@@ -93,5 +93,49 @@ if(s.equals("south")) {
     	}
     	
     }
-    
+    {
+  
+  
+  public PC(String name, String description) {
+    super(name, description);
+    this.respect = 40;
+  }
+
+
+
+  
+  public void raiseRespect() 
+  { 
+      this.respect++; 
+  }
+
+
+  
+  public void lowerRespect() 
+  { 
+      this.respect--; 
+  }
+
+
+  
+  public int getRespect() 
+  { 
+      return this.respect; 
+  }
+
+
+  
+  public void setRespect(int respect) 
+  {
+      this.respect = respect; 
+  }
+  
+  public void reactNewRoom(PC pc) {}
+  
+  public void reactGlad(PC pc) {}
+  
+  public void reactDiscontent(PC pc) {}
+}
+  
+}
 }

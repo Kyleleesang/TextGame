@@ -11,13 +11,14 @@ import java.lang.String;
  *
  * @author kleesans
  */
-public class animal {
+public class animal extends Creature {
     String name;
     Room room;
     
-    public animal(String n){
-        name = n;
+    public animal(String name, String description){
+       super(name,description);
     }
+
     
     public String toString(){
         return name;
