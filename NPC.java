@@ -35,13 +35,17 @@ public class NPC extends Creature {
 
 
   
-  public void reactGlad(PC pc) { smile(pc); }
+  public void reactGlad(PC pc) { 
+      smile(pc); 
+  }
 
 
 
   
-  public void reactDiscontent(PC pc) { grumble(pc); }
+  public void reactDiscontent(PC pc) {
+      grumble(pc); 
+  }
 }
 
     
-}
+

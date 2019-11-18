@@ -17,13 +17,9 @@ public class Main {
     Room Room;
     int Respect = 40;
     
-    public PC(String name){
-    	super(name);
-        
-    }
+
     
-    public String toString(){
-        return name;
+  
     }
     public void play(Scanner s) {
     	String line;
@@ -73,13 +69,13 @@ public class Main {
     			Room = Room.north;
     		}
 if(s.equals("east")) {
-    			Room= Room.east;
+    			currentRoom = Room.east;
     		}
 if(s.equals("west")) {
 	Room = Room.west;
 }
 if(s.equals("south")) {
-	Room= Room.south;
+	Room = Room.south;
 }
     		
     	}

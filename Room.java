@@ -168,7 +168,7 @@ public class Room {
   }
   
   public String getName() {
-      return Room.name;
+      return name;
   }
 
 

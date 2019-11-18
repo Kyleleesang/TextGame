@@ -14,13 +14,13 @@ public class PC extends Creature{
     String name;
     String description;
     Room room;
-    private int Respect = 40;
+    public int Respect = 40;
     
-    public PC(String name){
-    	super(name);
-        
-    }
-    
+    public PC(String name, String description) {
+    super(name, description);
+    this.Respect = 40;
+  }
+
     public String toString(){
         return name;
     }
@@ -41,7 +41,7 @@ public class PC extends Creature{
         			room.state = "half-dirty";
         		}
             if(state.equals("half-dirty")) {
-            	room.state= "clean";
+            	room.state = "clean";
         			
         		}
             if(state.equals("clean")) {
@@ -96,45 +96,46 @@ if(s.equals("south")) {
     {
   
   
-  public PC(String name, String description) {
-    super(name, description);
-    this.respect = 40;
-  }
 
 
 
   
-  public void raiseRespect() 
-  { 
-      this.respect++; 
+  public void raiseRespect() { 
+      this.Respect++; 
   }
 
 
   
   public void lowerRespect() 
   { 
-      this.respect--; 
+      this.Respect--; 
   }
 
 
   
   public int getRespect() 
   { 
-      return this.respect; 
+      return this.Respect; 
   }
 
 
   
-  public void setRespect(int respect) 
+  public void setRespect(int Respect) 
   {
-      this.respect = respect; 
+      this.Respect = Respect; 
   }
   
-  public void reactNewRoom(PC pc) {}
+  public void reactNewRoom(PC pc) {
   
-  public void reactGlad(PC pc) {}
+  }
   
-  public void reactDiscontent(PC pc) {}
+  public void reactGlad(PC pc) {
+  
+  }
+  
+  public void reactDiscontent(PC pc) {
+  
+  }
 }
   
 }

@@ -19,6 +19,8 @@ import java.util.Random;
 public abstract class Creature 
 {
   Room currentRoom;
+  String name;
+  String description;
   
   public Creature(String name, String description) 
   {
@@ -124,7 +126,7 @@ public abstract class Creature
     Random generator = new Random();
     int intDirection = generator.nextInt(4);
     String direction = directions[intDirection];
-    boolean move = tryToMove(direction, Boolean.valueOf(false), PC);
+    boolean move = tryToMove(direction, Boolean.valueOf(false), player);
     int counter = 0; while (true) {
       if ((!move ? 1 : 0) & ((counter < 4) ? 1 : 0)) {
         if (intDirection < 3) {
@@ -140,7 +142,7 @@ public abstract class Creature
       
       System.out.println(getName() + " the " + getClass() + " leaves room " + getRoom().getName() + " through the roof because there is nowhere to go!");
       getRoom().removeCreature(this);
-      getRoom().reactCrittersRoof(PC);
+      getRoom().reactCrittersRoof(player);
     } 
   }
 
@@ -191,14 +193,14 @@ public abstract class Creature
       if (this instanceof animal) {
         Class = "animal";
         if (command == true) {
-          reactGlad(PC);
+          reactGlad(player);
         } 
       } 
       
       if (this instanceof NPC) {
         Class = "NPC";
         if (command == true) {
-          reactDiscontent(PC);
+          reactDiscontent(player);
         } 
       } 
       
@@ -218,16 +220,16 @@ public abstract class Creature
       if (this instanceof NPC) {
         Class = "NPC";
         if (command == true) {
-          reactGlad(PC);
-          reactGlad(PC);
+          reactGlad(player);
+         
         } 
       } 
       
       if (this instanceof animal) {
         Class = "animal";
         if (command == true) {
-          reactDiscontent(PC);
-          reactDiscontent(PC);
+          reactDiscontent(player);
+          
         } 
       } 
       
@@ -243,6 +245,22 @@ public abstract class Creature
   
   public Room getRoom() { 
           return this.currentRoom; 
+  }
+  
+  public String getName() {
+      return name;
+  }
+  
+  public String getDescription (){
+      return description;
+  }
+  
+  public void setName(String name){
+      this.name = name;
+  }
+  
+  public void setDescription(String description){
+      this.description = description;
   }
 
 
