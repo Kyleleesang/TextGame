@@ -142,7 +142,7 @@ public abstract class Creature
       
       System.out.println(getName() + " the " + getClass() + " leaves room " + getRoom().getName() + " through the roof because there is nowhere to go!");
       getRoom().removeCreature(this);
-      getRoom().reactCrittersRoof(player);
+      
     } 
   }
 

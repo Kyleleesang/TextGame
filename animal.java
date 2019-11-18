@@ -11,8 +11,9 @@ import java.lang.String;
  *
  * @author kleesans
  */
-public abstract class animal extends Creature {
+public class animal extends Creature {
     String name;
+    String description;
     Room room;
     
     public animal(String name, String description){
@@ -46,5 +47,6 @@ if (getRoom().getState()==0){
   public void reactDiscontent(PC pc) {
   growl(pc);
     
+}
 }
 
