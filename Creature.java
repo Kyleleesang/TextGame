@@ -6,39 +6,14 @@
  */
 package RoomGame;
 import java.lang.String;
+import java.util.Random;
 
 
 /**
  *
  * @author kleesans
  */
-public abstract class Creature {
- 
-    Room current;
-    
-    public Creature(String name, String description){
-        name = n;
-    }
-    
-    public String toString(){
-        return name;
-    }
-//alerting animals about the room
-    public void notification() {
-   }
-//method signature for peekroom since all animals can peek
 
-//allows a creature to enter or exit a room
-//change room state
-     public void Interact() {
-   }
-     public Room getRoom() {
-        return this.current;
-    }
-     public void SetRoom(Room current) {
-          this.current = current;
-      }
-}
 
 
 public abstract class Creature 
@@ -55,8 +30,8 @@ public abstract class Creature
   public Creature() {}
   
   public String getClass() {
-    if (this instanceof Animal)
-      return "Animal"; 
+    if (this instanceof animal)
+      return "animal"; 
     if (this instanceof NPC) {
       return "NPC";
     }
@@ -72,40 +47,40 @@ public abstract class Creature
     System.out.println("Doors to:");
     
     try {
-      Room neighbor = this.currentRoom.getNeighbor("n");
+      Room neighbor = this.currentRoom.findNeighbor("n");
       System.out.println("the north: " + neighbor.getName() + "room");
     } catch (NullPointerException e) {}
     
     try {
-      Room room = this.currentRoom.getNeighbor("e");
+      Room room = this.currentRoom.findNeighbor("e");
       System.out.println("the east: " + room.getName() + "room");
     } catch (NullPointerException e) {}
     
     try {
-      Room room = this.currentRoom.getNeighbor("s");
+      Room room = this.currentRoom.findNeighbor("s");
       System.out.println("the south: " + room.getName() + "room");
     } catch (NullPointerException e) {}
     
     try {
-      Room room = this.currentRoom.getNeighbor("w");
+      Room room = this.currentRoom.findNeighbor("w");
       System.out.println("the west: " + room.getName() + " room");
     } catch (NullPointerException e) {}
     
     System.out.println("Creatures:");
-    for (int i = 0; i <= getRoom().getLastCreatureIndex(); i++) {
+    for (int i = 0; i <= getRoom().getLastCreature(); i++) {
       if (!this.currentRoom.getOccupants()[i].getName().equals(getName())) {
         Creature thisone = getRoom().getOccupants()[i];
-        System.out.print(crit.getName() + ", ");
+        System.out.print(thisone.getName() + ", ");
         if (thisone instanceof PC) {
           System.out.print("PC, ");
         }
-        if (thisone instanceof Animal) {
-          System.out.print("Animal, ");
+        if (thisone instanceof animal) {
+          System.out.print("animal, ");
         }
         if (thisone instanceof NPC) {
           System.out.print("NPC, ");
         }
-        System.out.print(crit.getDescription() + " \n ");
+        System.out.print(thisone.getDescription() + " \n ");
       } 
     } 
   }
@@ -118,7 +93,7 @@ public abstract class Creature
   public abstract void reactDiscontent(PC player);
   
   public final void reactChangedRoomState(String command, PC player) {
-    if (this instanceof Animal) {
+    if (this instanceof animal) {
       if (command.equals("clean")) {
         reactGlad(player);
       }
@@ -149,7 +124,7 @@ public abstract class Creature
     Random generator = new Random();
     int intDirection = generator.nextInt(4);
     String direction = directions[intDirection];
-    boolean move = tryToMove(direction, Boolean.valueOf(false), pc);
+    boolean move = tryToMove(direction, Boolean.valueOf(false), PC);
     int counter = 0; while (true) {
       if ((!move ? 1 : 0) & ((counter < 4) ? 1 : 0)) {
         if (intDirection < 3) {
@@ -158,40 +133,40 @@ public abstract class Creature
           intDirection = 0;
         } 
         direction = directions[intDirection];
-        move = tryToMove(direction, Boolean.valueOf(false), pc);
+        move = tryToMove(direction, Boolean.valueOf(false), PC);
         counter++; continue;
       }  break;
     }  if (!move) {
       
       System.out.println(getName() + " the " + getClass() + " leaves room " + getRoom().getName() + " through the roof because there is nowhere to go!");
       getRoom().removeCreature(this);
-      getRoom().reactCrittersRoof(pc);
+      getRoom().reactCrittersRoof(PC);
     } 
   }
 
 
   
-  public final boolean tryToMove(String direction, Boolean command, PC pc) {
+  public final boolean tryToMove(String direction, Boolean command, PC PC) {
     try {
-      Room neighbor = getRoom().getNeighbor(direction);
-      if (neighbor.LastCreature() < 9) {
+      Room neighbor = getRoom().findNeighbor(direction);
+      if (neighbor.getLastCreature() < 9) {
 
         
         neighbor.addCreature(this, neighbor.getLastCreature() + 1);
         neighbor.setLastCreatureIndex(neighbor.getLastCreature() + 1);
-        System.out.println(getName() + " the " + getCreatureClass() + " leaves room " + getRoom().getName() + " to go to room " + neighbor.getName() + ", " + direction);
+        System.out.println(getName() + " the " + getClass() + " leaves room " + getRoom().getName() + " to go to room " + neighbor.getName() + ", " + direction);
         
         getRoom().removeCreature(this);
         
         setCurrentRoom(neighbor);
-        reactNewRoom(pc);
+        reactNewRoom(PC);
         return true;
       } 
 
       
       if (command.booleanValue() == true) {
         System.out.println("Room is full!");
-        reactDiscontent(pc);
+        reactDiscontent(PC);
       } 
       return false;
     }
@@ -199,7 +174,7 @@ public abstract class Creature
       
       if (command.booleanValue() == true) {
         System.out.println("There is no room to " + direction + "!");
-        reactDiscontent(pc);
+        reactDiscontent(PC);
       } 
       return false;
     } 
@@ -213,17 +188,17 @@ public abstract class Creature
     if (getRoom().getState() < 2) {
       getRoom().setState(getRoom().getState() + 1);
       
-      if (this instanceof Animal) {
-        Class = "Animal";
+      if (this instanceof animal) {
+        Class = "animal";
         if (command == true) {
-          reactGlad(pc);
+          reactGlad(PC);
         } 
       } 
       
       if (this instanceof NPC) {
         Class = "NPC";
         if (command == true) {
-          reactDiscontent(pc);
+          reactDiscontent(PC);
         } 
       } 
       
@@ -243,16 +218,16 @@ public abstract class Creature
       if (this instanceof NPC) {
         Class = "NPC";
         if (command == true) {
-          reactGlad(pc);
-          reactGlad(pc);
+          reactGlad(PC);
+          reactGlad(PC);
         } 
       } 
       
-      if (this instanceof Animal) {
-        Class = "Animal";
+      if (this instanceof animal) {
+        Class = "animal";
         if (command == true) {
-          reactDiscontent(pc);
-          reactDiscontent(pc);
+          reactDiscontent(PC);
+          reactDiscontent(PC);
         } 
       } 
       
@@ -266,11 +241,13 @@ public abstract class Creature
   }
 
   
-  public Room getRoom() { return this.currentRoom; }
+  public Room getRoom() { 
+          return this.currentRoom; 
+  }
 
 
   
-  public void setCurrentRoom(Room currentRoom) 
-  {
-      this.currentRoom = currentRoom; }
+  public void setCurrentRoom(Room currentRoom) {
+      this.currentRoom = currentRoom; 
+  }
 }
