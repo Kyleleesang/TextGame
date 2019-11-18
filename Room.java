@@ -166,6 +166,10 @@ public class Room {
   public int getState() { 
       return this.state; 
   }
+  
+  public String getName() {
+      return Room.name;
+  }
 
 
   
